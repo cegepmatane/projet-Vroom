@@ -1,5 +1,5 @@
-### AI
+# AI
 
-# Guillaume Vernaz
-# Maxime Daigle Vigneault
-# Esteban Escudereau
+### Guillaume Vernaz
+### Maxime Daigle Vigneault
+### Esteban Escudereau
