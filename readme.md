@@ -2,4 +2,4 @@
 
 ### Guillaume Vernaz
 ### Maxime Daigle Vigneault
-### Esteban Escudereau
+### Esteban Escudero
