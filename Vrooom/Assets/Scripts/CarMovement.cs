@@ -40,7 +40,7 @@ public class CarMovement : MonoBehaviour
 		}
 
 		float tf = Mathf.Lerp(0, torqueForce, rb.velocity.magnitude / 2);
-		rb.angularVelocity = (Input.GetAxis("Horizontal") * tf);
+		rb.angularVelocity = (Input.GetAxis("Horizontal") * -tf);
     }
 
 	Vector2 ForwardVelocity()
@@ -51,4 +51,15 @@ public class CarMovement : MonoBehaviour
 	{
 		return transform.right * Vector2.Dot(rb.velocity, transform.right);
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		Debug.Log("SA A TOUCHER");
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+		Debug.Log("Toucher le mur");
+    }
+
 }
