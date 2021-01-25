@@ -549,6 +549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2776808694780424074, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5635799074902447548, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -628,11 +632,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194a9c44d90ff2441b82699886db1ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nombreDeMap: 1
   generationProcedural: 0
-  racestart: {fileID: 1161899455}
-  roadprefabs:
+  toursParMap: 1
+  roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
-  - {fileID: 6552777472479760619, guid: aace2953b7f8704498926f036b1692cb, type: 3}
+  - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
+  - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
+  - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
+  roadPrefabsFullProc: []
+  map: []
 --- !u!4 &2075630141
 Transform:
   m_ObjectHideFlags: 0
