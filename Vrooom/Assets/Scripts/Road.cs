@@ -8,6 +8,7 @@ public class Road : MonoBehaviour
     [SerializeField]
     bool isLoop = false;
 
+    [SerializeField]
     List<Checkpoint> checkpointList = null;
 
     Dictionary<GameObject, int> tourDesJoueurs;

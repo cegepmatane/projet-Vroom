@@ -33,7 +33,7 @@ public class RoadManager : MonoBehaviour
     [SerializeField]
     List<GameObject> map = new List<GameObject>();
 
-    List<GameObject> joueurs = null;
+    List<GameObject> joueurs = new List<GameObject>();
 
     void Start() {
         //Récupérer une référence à tout les joueurs/AI en jeu
@@ -75,7 +75,7 @@ public class RoadManager : MonoBehaviour
         nextRoad.learnPlayers(joueurs);
         nextRoad.configure(toursParRoad);
 
-        //Si le mode est semi procédural, toute les roads on une ligne de départ
+        //Si le mode est semi procédural, toute les roads ont une ligne de départ
         if (generationProcedural == GenerationProcedural.semi) {
             nextRoad.setStartLine();
         }
