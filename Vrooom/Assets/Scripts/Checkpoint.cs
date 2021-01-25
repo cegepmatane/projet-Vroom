@@ -20,9 +20,8 @@ public class Checkpoint : MonoBehaviour
     [SerializeField]
     Transform spawnPoint = null;
 
-    private void Start()
-    {
-        
+    private void Start(){
+        updateApparence();
     }
 
     public void setStartLine() {
@@ -36,9 +35,12 @@ public class Checkpoint : MonoBehaviour
     }
 
     private void updateApparence() {
-        Debug.Log("updated checkpoint's apperance!");
 
-        if (!isStart && !isFinish) { return; }
+        if (!isStart && !isFinish) {
+            CheckpointForeground.SetActive(true);
+            CheckpointBackground.SetActive(false); 
+            return; 
+        }
 
         CheckpointForeground.SetActive(false);
         CheckpointBackground.SetActive(true);
