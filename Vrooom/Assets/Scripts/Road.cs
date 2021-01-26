@@ -79,7 +79,11 @@ public class Road : MonoBehaviour
         //si la Road n'est pas une loop, un chekpoint start fait office de ligne d'arrivee
         //ET si le mode est semi-procédural
         GenerationProcedural type = FindObjectOfType<RoadManager>().GetGenerationProcedural;
-        if (!isLoop && type == GenerationProcedural.semi) { checkpointList[checkpointList.Count - 1].setStartLine(); }
+        if (!isLoop && type == GenerationProcedural.semi) { 
+            Checkpoint checkpoint = checkpointList[checkpointList.Count - 1];
+            if (!checkpoint.IsFinish)
+                checkpoint.setStartLine();
+        }
 
         return checkpointList[0].transform;
     }

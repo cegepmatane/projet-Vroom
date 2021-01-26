@@ -86,16 +86,16 @@ public class RoadManager : MonoBehaviour
         nextRoad.learnPlayers(joueurs);
         nextRoad.configure(toursParRoad);
 
-        //Si le mode est semi procédural, toute les roads ont une ligne de départ
-        if (generationProcedural == GenerationProcedural.semi) {
-            nextRoad.setStartLine();
-            nextRoad.confirmFirstPlayersCheckpoint(joueurs);
-        }
-
         //Si les nombre de road sible est atteint, ajouter une ligne d'arrivée sur la derrnière road
         if (map.Count == nombreDeRoad) {
             Debug.Log("nextRoad = Dernière Road!");
             nextRoad.setFinishLine();
+        }
+
+        //Si le mode est semi procédural, toute les roads ont une ligne de départ
+        if (generationProcedural == GenerationProcedural.semi) {
+            nextRoad.setStartLine();
+            nextRoad.confirmFirstPlayersCheckpoint(joueurs);
         }
 
         return nextRoad;

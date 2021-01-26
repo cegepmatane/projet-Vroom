@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194a9c44d90ff2441b82699886db1ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDeRoad: 2
+  nombreDeRoad: 1
   generationProcedural: 0
   toursParRoad: 1
   roadPrefabsSemiProc:

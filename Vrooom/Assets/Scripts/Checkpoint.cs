@@ -17,6 +17,8 @@ public class Checkpoint : MonoBehaviour
     bool isFinish = false;
     bool isStart = false;
 
+    public bool IsFinish { get { return isFinish; } }
+
     [SerializeField]
     Transform spawnPoint = null;
 
