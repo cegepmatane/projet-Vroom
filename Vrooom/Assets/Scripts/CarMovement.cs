@@ -13,6 +13,9 @@ public class CarMovement : MonoBehaviour
 	float maxStickyVelocity = 2.5f;
 	float minStickyVelocity = 1.5f; //pas implementer, peut-^etre plus tard
 
+	[SerializeField]
+	Player monPlayer;
+
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
@@ -56,7 +59,9 @@ public class CarMovement : MonoBehaviour
 		Checkpoint checkpoint;
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
 			Debug.Log("Checkpoint TOUCHER");
-			checkpoint.confirmPlayer(transform.parent.gameObject.GetInstanceID());
+			if (checkpoint.confirmPlayer(monPlayer.gameObject.GetInstanceID())) {
+				monPlayer.setLastCheckPoint(checkpoint.SpawnPoint);
+			}
 		}
     }
 

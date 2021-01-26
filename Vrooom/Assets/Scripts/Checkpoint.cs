@@ -22,6 +22,8 @@ public class Checkpoint : MonoBehaviour
     [SerializeField]
     Transform spawnPoint = null;
 
+    public Transform SpawnPoint { get { return spawnPoint; } }
+
     public List<int> passageJoueurs = new List<int>();
 
     private void Start(){
@@ -59,8 +61,8 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    public void confirmPlayer(int instanceId) {
-        if (passageJoueurs.Contains(instanceId)) { return; }
+    public bool confirmPlayer(int instanceId) {
+        if (passageJoueurs.Contains(instanceId)) { return false; }
         passageJoueurs.Add(instanceId);
 
         if (isNextRoadTrigger) {
@@ -68,10 +70,12 @@ public class Checkpoint : MonoBehaviour
             //TODO appeler le roadmanager pour generer la prochaine road
         }
 
-        if (!isFinish && !isStart) { return; }
+        if (isFinish || isStart) {
+            Road road = transform.parent.GetComponentInParent<Road>();
+            road.nextTurn(instanceId, isFinish);
+        }
 
-        Road road = transform.parent.GetComponentInParent<Road>();
-        road.nextTurn(instanceId, isFinish);
+        return true;
     }
 
     public void resetPlayer(int instanceId) {
