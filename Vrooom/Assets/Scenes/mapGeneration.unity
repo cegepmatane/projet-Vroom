@@ -311,9 +311,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194a9c44d90ff2441b82699886db1ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDeRoad: 2
+  nombreDeRoad: 3
   generationProcedural: 0
-  toursParRoad: 1
+  toursParRoad: 2
   roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
   - {fileID: 7562889086805474590, guid: aace2953b7f8704498926f036b1692cb, type: 3}

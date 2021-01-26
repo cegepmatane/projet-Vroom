@@ -113,8 +113,7 @@ public class RoadManager : MonoBehaviour
 
         map.Add(nextRoadObject);
         Road nextRoad = nextRoadObject.GetComponent<Road>();
-        nextRoad.learnPlayers(joueurs);
-        nextRoad.configure(this,toursParRoad);
+        nextRoad.configure(this,toursParRoad, joueurs);
 
         //Si les nombre de road sible est atteint, ajouter une ligne d'arrivée sur la derrnière road
         if (map.Count == nombreDeRoad) {

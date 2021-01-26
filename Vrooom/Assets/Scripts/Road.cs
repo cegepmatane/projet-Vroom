@@ -28,7 +28,7 @@ public class Road : MonoBehaviour
     {
     }
 
-    public void learnPlayers(List<GameObject> players) {
+    void learnPlayers(List<GameObject> players) {
         //apprend tout les joueurs de la partie et met leur nombre de tours à 0 
         foreach (GameObject player in players) {
             tourDesJoueurs.Add(player.GetInstanceID(), 0);
@@ -44,8 +44,9 @@ public class Road : MonoBehaviour
         }
     }
 
-    public void configure(RoadManager a_roadManager, int prefTours) {
+    public void configure(RoadManager a_roadManager, int prefTours, List<GameObject> players) {
         roadManager = a_roadManager;
+        learnPlayers(players);
         //Si la map est une boucle, permettre de faire plusieurs tours (si demandé)
         if (!isLoop) { return; }
         tours = prefTours;
@@ -58,6 +59,8 @@ public class Road : MonoBehaviour
         int instanceId = player.GetInstanceID();
         //si le joueur n'a pas tout les checkpoints de la Road
         if (!verifyPlayerCheckpoints(instanceId)) { return; } //Ne rien faire
+
+            resetPlayerCheckpoints(instanceId);
 
             Debug.Log(gameObject.name + " : " + instanceId + " +1 tours!");
 
@@ -83,8 +86,18 @@ public class Road : MonoBehaviour
         return true;
     }
 
+    //Reset tout les checkpoints (sauf le checkpoint de départ)
+    private void resetPlayerCheckpoints(int instanceId) {
+        Debug.Log("Reset les checkpoints de {" + instanceId + "} sur la map : "+gameObject.GetInstanceID());
+        for (int i = 1; i < checkpointList.Count; i++) {
+            checkpointList[i].resetPlayer(instanceId);
+        }
+    }
 
-    public void generateNextRoad() {
+    public void activerPremierCheckpoint(int instanceId) {
+        //Si la map est une boucle, le checkpoint de départ est reset être la ligne d'arrivé
+        if (isLoop) { checkpointList[0].resetPlayer(instanceId); }
+
         if (hasNext) { return; }
 
         hasNext = true;

@@ -75,7 +75,7 @@ public class Checkpoint : MonoBehaviour
         }
 
         if (isNextRoadTrigger) {
-            transform.parent.GetComponentInParent<Road>().generateNextRoad();
+            transform.parent.GetComponentInParent<Road>().activerPremierCheckpoint(player.GetInstanceID());
             return true;
         }
 

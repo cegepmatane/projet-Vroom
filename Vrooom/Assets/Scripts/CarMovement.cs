@@ -58,7 +58,6 @@ public class CarMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 		Checkpoint checkpoint;
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
-			Debug.Log("Checkpoint TOUCHER");
 			if (checkpoint.confirmPlayer(monPlayer.gameObject)) {
 				monPlayer.setLastCheckPoint(checkpoint.SpawnPoint);
 			}
