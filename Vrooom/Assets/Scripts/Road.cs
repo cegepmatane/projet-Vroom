@@ -11,7 +11,7 @@ public class Road : MonoBehaviour
     [SerializeField]
     List<Checkpoint> checkpointList = null;
 
-    Dictionary<GameObject, int> tourDesJoueurs;
+    Dictionary<int, int> tourDesJoueurs = new Dictionary<int, int>();
 
     int tours = 1;
 
@@ -22,7 +22,7 @@ public class Road : MonoBehaviour
     public void learnPlayers(List<GameObject> players) {
         //apprend tout les joueurs de la partie et met leur nombre de tours à 0 
         foreach (GameObject player in players) {
-            tourDesJoueurs.Add(player, 0);
+            tourDesJoueurs.Add(player.GetInstanceID(), 0);
         }
     }
 
@@ -40,9 +40,9 @@ public class Road : MonoBehaviour
 
             Debug.Log(gameObject.name + " : " + player.name + " +1 tours!");
 
-            tourDesJoueurs[player]++;
+            tourDesJoueurs[player.GetInstanceID()]++;
             
-            if (tourDesJoueurs[player] < tours) { return; }
+            if (tourDesJoueurs[player.GetInstanceID()] < tours) { return; }
 
             Debug.Log(gameObject.name + " : Le joueur " + player.name + " à fini tout ses tours sur cette road!");
 
@@ -53,8 +53,9 @@ public class Road : MonoBehaviour
             }
     }
 
-    public void setStartLine() {
+    public Transform setStartLine() {
         Debug.Log(gameObject.name + " contient une ligne de départ!");
+        return checkpointList[0].transform;
     }
 
     public void setFinishLine() {

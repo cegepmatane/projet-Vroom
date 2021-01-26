@@ -36,15 +36,20 @@ public class RoadManager : MonoBehaviour
     List<GameObject> joueurs = new List<GameObject>();
 
     void Start() {
-        //Récupérer une référence à tout les joueurs/AI en jeu
-        CarMovement[] players = FindObjectsOfType<CarMovement>();
-        for (int i=0; i< players.Length; i++) {
-            joueurs.Add(players[i].gameObject);
-        }
-
         //Génère la 1ere road
         Road premiereRoad = generateNext();
-        premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road en Full procédual
+        Transform premierCheckpoint = premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road
+
+
+        //Récupérer une référence à tout les joueurs/AI en jeu
+        Player[] players = FindObjectsOfType<Player>();
+        for (int i = 0; i < players.Length; i++) {
+            joueurs.Add(players[i].gameObject);
+
+            //Placer les joueurs sur la ligne de départ
+            players[i].setLastCheckPoint(premierCheckpoint);
+            players[i].respawn();
+        }
     }
 
     public Road generateNext() {
