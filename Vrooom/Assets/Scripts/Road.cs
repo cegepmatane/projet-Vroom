@@ -58,9 +58,11 @@ public class Road : MonoBehaviour
             Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à fini tout ses tours sur cette road!");
 
             if (isFinish) {
-                //Le joueur à terminé la course
+                //TODO Le joueur à terminé la course
+                Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à terminé la course!");
             } else {
-                //Le joueur passe à la prochaine road (téléportation)
+                Debug.Log(gameObject.name + " : Le joueur " + instanceId + " se téléporte!");
+                //TODO Le joueur passe à la prochaine road (téléportation)
             }
     }
 

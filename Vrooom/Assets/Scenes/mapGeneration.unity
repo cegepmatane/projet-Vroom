@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreDeRoad: 2
+  generationProcedural: 0
   toursParRoad: 1
   roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}

@@ -13,8 +13,8 @@ public class Checkpoint : MonoBehaviour
     Sprite[] imagesBackground = new Sprite[3];
     [Header("Options")]
     [SerializeField]
+    bool isNextRoadTrigger = false;
     bool isFinish = false;
-    [SerializeField]
     bool isStart = false;
 
     [SerializeField]
@@ -60,6 +60,11 @@ public class Checkpoint : MonoBehaviour
     public void confirmPlayer(int instanceId) {
         if (passageJoueurs.Contains(instanceId)) { return; }
         passageJoueurs.Add(instanceId);
+
+        if (isNextRoadTrigger) {
+            Debug.Log("checkpoint NextRoadTrigger!");
+            //TODO appeler le roadmanager pour generer la prochaine road
+        }
 
         if (!isFinish && !isStart) { return; }
 

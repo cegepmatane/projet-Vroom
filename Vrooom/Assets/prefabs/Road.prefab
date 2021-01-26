@@ -1503,6 +1503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Checkpoint (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4871814009067251805, guid: f9c19fed2bd80d547901418e4d6c85c6, type: 3}
+      propertyPath: isNextRoadTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9c19fed2bd80d547901418e4d6c85c6, type: 3}
 --- !u!4 &5587158183650587104 stripped
