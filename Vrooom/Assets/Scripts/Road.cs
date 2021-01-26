@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static RoadManager;
 
 public class Road : MonoBehaviour
 {
@@ -72,6 +73,12 @@ public class Road : MonoBehaviour
 
     public Transform setStartLine() {
         checkpointList[0].setStartLine();
+
+        //si la Road n'est pas une loop, un chekpoint start fait office de ligne d'arrivee
+        //ET si le mode est semi-procédural
+        GenerationProcedural type = FindObjectOfType<RoadManager>().GetGenerationProcedural;
+        if (!isLoop && type == GenerationProcedural.semi) { checkpointList[checkpointList.Count - 1].setStartLine(); }
+
         return checkpointList[0].transform;
     }
 

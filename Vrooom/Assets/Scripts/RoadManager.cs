@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoadManager : MonoBehaviour
 {
 
-    enum GenerationProcedural {
+    public enum GenerationProcedural {
         semi,
         full
     };
@@ -17,6 +17,8 @@ public class RoadManager : MonoBehaviour
 
     [SerializeField]
     GenerationProcedural generationProcedural = GenerationProcedural.semi;
+
+    public GenerationProcedural GetGenerationProcedural { get { return generationProcedural; } }
 
     [Header("Options Semi Procédural")]
     [Tooltip("Nombre de tours demandé sur chaque Road. Si une Road n'est pas une boucle la valeur sera forcé à 1 sinon elle prendra celle-ci")]
@@ -37,18 +39,20 @@ public class RoadManager : MonoBehaviour
     List<GameObject> joueurs = new List<GameObject>();
 
     void Start() {
-        //Génère la 1ere road
-        Road premiereRoad = generateNext();
-        Transform premierCheckpoint = premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road
-
         //Récupérer une référence à tout les joueurs/AI en jeu
         Player[] players = FindObjectsOfType<Player>();
         for (int i = 0; i < players.Length; i++) {
             joueurs.Add(players[i].gameObject);
+        }
 
+        //Génère la 1ere road
+        Road premiereRoad = generateNext();
+        Transform premierCheckpoint = premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road
+
+        for (int j = 0; j < players.Length; j++) {
             //Placer les joueurs sur la ligne de départ
-            players[i].setLastCheckPoint(premierCheckpoint);
-            players[i].respawn();
+            players[j].setLastCheckPoint(premierCheckpoint);
+            players[j].respawn();
         }
 
         premiereRoad.confirmFirstPlayersCheckpoint(joueurs); //Nécéssaire pour la 1ere road
