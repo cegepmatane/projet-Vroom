@@ -8,6 +8,7 @@ public class Road : MonoBehaviour
     [Header("Options")]
     [SerializeField]
     bool isLoop = false;
+    bool hasNext = false;
 
     [SerializeField]
     List<Checkpoint> checkpointList = null;
@@ -15,6 +16,8 @@ public class Road : MonoBehaviour
     Dictionary<int, int> tourDesJoueurs = new Dictionary<int, int>();
 
     int tours = 1;
+
+    RoadManager roadManager;
 
     private void Start()
     {
@@ -31,12 +34,13 @@ public class Road : MonoBehaviour
         foreach (GameObject player in players) {
             //Si la map n'est pas une loop, on donne le premier checkpoint car le joueur ne pourra jamais l'obtenir autrement
             if (!isLoop) {
-                checkpointList[0].confirmPlayer(player.GetInstanceID());
+                checkpointList[0].confirmPlayer(player);
             }
         }
     }
 
-    public void configure(int prefTours) {
+    public void configure(RoadManager a_roadManager, int prefTours) {
+        roadManager = a_roadManager;
         //Si la map est une boucle, permettre de faire plusieurs tours (si demandé)
         if (!isLoop) { return; }
         tours = prefTours;
@@ -45,7 +49,8 @@ public class Road : MonoBehaviour
     //Cette fonction est appelé par un checkpoint (start) ou (finish)
     //Le checkpoint (start) permet de faire plusieurs tour et de changer de Road.
     //Le checkpoint (finish) permet de mettre fin à la course.
-    public void nextTurn(int instanceId, bool isFinish) {
+    public void nextTurn(GameObject player, bool isFinish) {
+        int instanceId = player.GetInstanceID();
         //si le joueur n'a pas tout les checkpoints de la Road
         if (!verifyPlayerCheckpoints(instanceId)) { return; } //Ne rien faire
 
@@ -62,7 +67,7 @@ public class Road : MonoBehaviour
                 Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à terminé la course!");
             } else {
                 Debug.Log(gameObject.name + " : Le joueur " + instanceId + " se téléporte!");
-                //TODO Le joueur passe à la prochaine road (téléportation)
+                roadManager.teleportToNextMap(player.GetComponent<Player>());
             }
     }
 
@@ -73,18 +78,30 @@ public class Road : MonoBehaviour
         return true;
     }
 
-    public Transform setStartLine() {
+
+    public void generateNextRoad() {
+        if (hasNext) { return; }
+
+        hasNext = true;
+        roadManager.generateNext();
+        Debug.Log("checkpoint NextRoadTrigger!");
+    }
+
+    public void setStartLine() {
         checkpointList[0].setStartLine();
 
         //si la Road n'est pas une loop, un chekpoint start fait office de ligne d'arrivee
         //ET si le mode est semi-procédural
-        GenerationProcedural type = FindObjectOfType<RoadManager>().GetGenerationProcedural;
+        GenerationProcedural type = roadManager.GetGenerationProcedural;
         if (!isLoop && type == GenerationProcedural.semi) { 
             Checkpoint checkpoint = checkpointList[checkpointList.Count - 1];
             if (!checkpoint.IsFinish)
                 checkpoint.setStartLine();
         }
+    }
 
+    public Transform GetStartLine() {
+        if (!checkpointList[0].IsStart) { setStartLine(); }
         return checkpointList[0].transform;
     }
 

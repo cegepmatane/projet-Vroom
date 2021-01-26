@@ -45,17 +45,33 @@ public class RoadManager : MonoBehaviour
             joueurs.Add(players[i].gameObject);
         }
 
-        //Génère la 1ere road
-        Road premiereRoad = generateNext();
-        Transform premierCheckpoint = premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road
+        generateNext();
 
         for (int j = 0; j < players.Length; j++) {
             //Placer les joueurs sur la ligne de départ
-            players[j].setLastCheckPoint(premierCheckpoint);
-            players[j].respawn();
+            teleportToNextMap(players[j]);
         }
+    }
 
-        premiereRoad.confirmFirstPlayersCheckpoint(joueurs); //Nécéssaire pour la 1ere road
+    //Téléporte le joueur la prochaine map
+    public void teleportToNextMap(Player player) {
+        GameObject destination = null;
+        if (player.CurrentMapId == 0) {
+            destination = map[0];
+        } else {
+            for (int i = 0; i < map.Count; i++) {
+                if (map[i].GetInstanceID().Equals(player.CurrentMapId)) {
+                    destination = map[i+1];
+                    break;
+                }
+            }
+        }
+        player.CurrentMapId = destination.GetInstanceID();
+
+        Road road = destination.GetComponent<Road>();
+        player.setLastCheckPoint(road.GetStartLine());
+        road.confirmFirstPlayersCheckpoint(joueurs);
+        player.respawn();
     }
 
     public Road generateNext() {
@@ -84,7 +100,7 @@ public class RoadManager : MonoBehaviour
         map.Add(nextRoadObject);
         Road nextRoad = nextRoadObject.GetComponent<Road>();
         nextRoad.learnPlayers(joueurs);
-        nextRoad.configure(toursParRoad);
+        nextRoad.configure(this,toursParRoad);
 
         //Si les nombre de road sible est atteint, ajouter une ligne d'arrivée sur la derrnière road
         if (map.Count == nombreDeRoad) {
@@ -92,9 +108,8 @@ public class RoadManager : MonoBehaviour
             nextRoad.setFinishLine();
         }
 
-        //Si le mode est semi procédural, toute les roads ont une ligne de départ
+        //Si le mode est semi procédural
         if (generationProcedural == GenerationProcedural.semi) {
-            nextRoad.setStartLine();
             nextRoad.confirmFirstPlayersCheckpoint(joueurs);
         }
 

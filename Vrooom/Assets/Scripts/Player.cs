@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform positionRespawn;
 
+    int currentMapId = 0;
+
+    public int CurrentMapId{ get { return currentMapId; } set { currentMapId = value; } }
+
     public void setLastCheckPoint(Transform transform) {
         positionRoadBlock.SetPositionAndRotation(transform.position, transform.rotation);
     }

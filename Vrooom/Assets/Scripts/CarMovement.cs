@@ -59,7 +59,7 @@ public class CarMovement : MonoBehaviour
 		Checkpoint checkpoint;
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
 			Debug.Log("Checkpoint TOUCHER");
-			if (checkpoint.confirmPlayer(monPlayer.gameObject.GetInstanceID())) {
+			if (checkpoint.confirmPlayer(monPlayer.gameObject)) {
 				monPlayer.setLastCheckPoint(checkpoint.SpawnPoint);
 			}
 		}
@@ -68,6 +68,7 @@ public class CarMovement : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 		Debug.Log("Toucher le mur");
-    }
+		monPlayer.respawn();
+	}
 
 }
