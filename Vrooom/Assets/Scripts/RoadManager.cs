@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoadManager : MonoBehaviour
 {
-    
+
     enum GenerationProcedural {
         semi,
         full
@@ -14,6 +14,7 @@ public class RoadManager : MonoBehaviour
     [Tooltip("Nombre d'objets de type Road qui compose une map. une valeur <= 0 entraine une génération infini")]
     [SerializeField]
     int nombreDeRoad = 1;
+
     [SerializeField]
     GenerationProcedural generationProcedural = GenerationProcedural.semi;
 
@@ -40,7 +41,6 @@ public class RoadManager : MonoBehaviour
         Road premiereRoad = generateNext();
         Transform premierCheckpoint = premiereRoad.setStartLine(); //Nécéssaire pour la 1ere road
 
-
         //Récupérer une référence à tout les joueurs/AI en jeu
         Player[] players = FindObjectsOfType<Player>();
         for (int i = 0; i < players.Length; i++) {
@@ -50,6 +50,8 @@ public class RoadManager : MonoBehaviour
             players[i].setLastCheckPoint(premierCheckpoint);
             players[i].respawn();
         }
+
+        premiereRoad.confirmFirstPlayersCheckpoint(joueurs); //Nécéssaire pour la 1ere road
     }
 
     public Road generateNext() {
@@ -83,6 +85,7 @@ public class RoadManager : MonoBehaviour
         //Si le mode est semi procédural, toute les roads ont une ligne de départ
         if (generationProcedural == GenerationProcedural.semi) {
             nextRoad.setStartLine();
+            nextRoad.confirmFirstPlayersCheckpoint(joueurs);
         }
 
         //Si les nombre de road sible est atteint, ajouter une ligne d'arrivée sur la derrnière road

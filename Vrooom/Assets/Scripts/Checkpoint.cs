@@ -20,6 +20,8 @@ public class Checkpoint : MonoBehaviour
     [SerializeField]
     Transform spawnPoint = null;
 
+    public List<int> passageJoueurs = new List<int>();
+
     private void Start(){
         updateApparence();
     }
@@ -53,5 +55,23 @@ public class Checkpoint : MonoBehaviour
         } else {
             sR.sprite = imagesBackground[1];
         }
+    }
+
+    public void confirmPlayer(int instanceId) {
+        if (passageJoueurs.Contains(instanceId)) { return; }
+        passageJoueurs.Add(instanceId);
+
+        if (!isFinish && !isStart) { return; }
+
+        Road road = transform.parent.GetComponentInParent<Road>();
+        road.nextTurn(instanceId, isFinish);
+    }
+
+    public void resetPlayer(int instanceId) {
+        passageJoueurs.Remove(instanceId);
+    }
+
+    public bool verifyPlayer(int instanceId) {
+        return passageJoueurs.Contains(instanceId);
     }
 }

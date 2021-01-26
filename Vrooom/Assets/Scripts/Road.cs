@@ -26,6 +26,15 @@ public class Road : MonoBehaviour
         }
     }
 
+    public void confirmFirstPlayersCheckpoint(List<GameObject> players) {
+        foreach (GameObject player in players) {
+            //Si la map n'est pas une loop, on donne le premier checkpoint car le joueur ne pourra jamais l'obtenir autrement
+            if (!isLoop) {
+                checkpointList[0].confirmPlayer(player.GetInstanceID());
+            }
+        }
+    }
+
     public void configure(int prefTours) {
         //Si la map est une boucle, permettre de faire plusieurs tours (si demandé)
         if (!isLoop) { return; }
@@ -35,22 +44,30 @@ public class Road : MonoBehaviour
     //Cette fonction est appelé par un checkpoint (start) ou (finish)
     //Le checkpoint (start) permet de faire plusieurs tour et de changer de Road.
     //Le checkpoint (finish) permet de mettre fin à la course.
-    public void nextTurn(GameObject player, bool isFinish) {
-        //if (player checkpoint != checkpointList.Count){ player hit wall; return; }
+    public void nextTurn(int instanceId, bool isFinish) {
+        //si le joueur n'a pas tout les checkpoints de la Road
+        if (!verifyPlayerCheckpoints(instanceId)) { return; } //Ne rien faire
 
-            Debug.Log(gameObject.name + " : " + player.name + " +1 tours!");
+            Debug.Log(gameObject.name + " : " + instanceId + " +1 tours!");
 
-            tourDesJoueurs[player.GetInstanceID()]++;
+            tourDesJoueurs[instanceId]++;
             
-            if (tourDesJoueurs[player.GetInstanceID()] < tours) { return; }
+            if (tourDesJoueurs[instanceId] < tours) { return; }
 
-            Debug.Log(gameObject.name + " : Le joueur " + player.name + " à fini tout ses tours sur cette road!");
+            Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à fini tout ses tours sur cette road!");
 
             if (isFinish) {
                 //Le joueur à terminé la course
             } else {
                 //Le joueur passe à la prochaine road (téléportation)
             }
+    }
+
+    private bool verifyPlayerCheckpoints(int instanceId) {
+        foreach (Checkpoint checkpoint in checkpointList) {
+            if (!checkpoint.verifyPlayer(instanceId)) return false;
+        }
+        return true;
     }
 
     public Transform setStartLine() {

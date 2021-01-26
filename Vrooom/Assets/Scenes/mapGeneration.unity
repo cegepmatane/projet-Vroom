@@ -178,6 +178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: player
       objectReference: {fileID: 0}
+    - target: {fileID: 1634204513655463839, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_TagString
+      value: car
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
 --- !u!1 &519420028
@@ -312,7 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombreDeRoad: 2
-  generationProcedural: 0
   toursParRoad: 1
   roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
