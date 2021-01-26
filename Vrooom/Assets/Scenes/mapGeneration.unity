@@ -316,7 +316,7 @@ MonoBehaviour:
   toursParRoad: 1
   roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
-  - {fileID: 95544605611930490, guid: aace2953b7f8704498926f036b1692cb, type: 3}
+  - {fileID: 7562889086805474590, guid: aace2953b7f8704498926f036b1692cb, type: 3}
   roadPrefabsFullProc: []
   map: []
 --- !u!4 &2075630141

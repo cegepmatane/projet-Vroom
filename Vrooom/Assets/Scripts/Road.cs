@@ -13,6 +13,11 @@ public class Road : MonoBehaviour
     [SerializeField]
     List<Checkpoint> checkpointList = null;
 
+    [SerializeField]
+    Transform nextSpawnPoint;
+
+    public Transform NextSpawnPoint{ get { return nextSpawnPoint; } }
+
     Dictionary<int, int> tourDesJoueurs = new Dictionary<int, int>();
 
     int tours = 1;

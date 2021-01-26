@@ -96,7 +96,21 @@ public class RoadManager : MonoBehaviour
         }
 
         //Crée la prochaine Road
-        GameObject nextRoadObject = Instantiate(nextPrefab); //TODO placer la Road quand on l'instantie
+        GameObject nextRoadObject = null;
+        if (map.Count <= 0) {
+            nextRoadObject = Instantiate(nextPrefab);
+        }
+        else {
+            Transform nextSpawnPoint = map[map.Count-1].GetComponent<Road>().NextSpawnPoint;
+            Vector3 position = new Vector3(nextSpawnPoint.position.x, nextSpawnPoint.position.y, nextSpawnPoint.position.z);
+            nextRoadObject = Instantiate(nextPrefab, position, Quaternion.identity);
+        }
+
+        if (nextRoadObject == null) {
+            Debug.Log("Erreur l'ors de l'instantiation de nouvelle map!");
+            return null;
+        }
+
         map.Add(nextRoadObject);
         Road nextRoad = nextRoadObject.GetComponent<Road>();
         nextRoad.learnPlayers(joueurs);
