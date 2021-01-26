@@ -52,9 +52,12 @@ public class CarMovement : MonoBehaviour
 		return transform.right * Vector2.Dot(rb.velocity, transform.right);
 	}
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-		Debug.Log("SA A TOUCHER");
+    private void OnTriggerEnter2D(Collider2D collision) {
+		Checkpoint checkpoint;
+		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
+			Debug.Log("Checkpoint TOUCHER");
+			checkpoint.confirmPlayer(transform.parent.gameObject.GetInstanceID());
+		}
     }
 
     private void OnCollisionStay2D(Collision2D collision)
