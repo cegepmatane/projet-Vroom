@@ -54,11 +54,14 @@ public class Road : MonoBehaviour
     }
 
     public Transform setStartLine() {
-        Debug.Log(gameObject.name + " contient une ligne de départ!");
+        checkpointList[0].setStartLine();
         return checkpointList[0].transform;
     }
 
     public void setFinishLine() {
-        Debug.Log(gameObject.name + " contient la ligne d'arrivé!");
+        if (isLoop)
+            checkpointList[0].setFinishLine();
+        else
+            checkpointList[checkpointList.Count-1].setFinishLine();
     }
 }
