@@ -103,7 +103,9 @@ public class RoadManager : MonoBehaviour
         else {
             Transform nextSpawnPoint = map[map.Count-1].GetComponent<Road>().NextSpawnPoint;
             Vector3 position = new Vector3(nextSpawnPoint.position.x, nextSpawnPoint.position.y, nextSpawnPoint.position.z);
-            nextRoadObject = Instantiate(nextPrefab, position, Quaternion.identity);
+            //nextRoadObject = Instantiate(nextPrefab, position, Quaternion.identity);
+            nextRoadObject = Instantiate(nextPrefab);
+            nextRoadObject.transform.SetPositionAndRotation(nextSpawnPoint.position, nextSpawnPoint.rotation);
         }
 
         if (nextRoadObject == null) {
