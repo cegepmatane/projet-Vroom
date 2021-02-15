@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using static RoadManager;
 
-public class Options : MonoBehaviour
+public class Options
 {
 
     //private Options options = null;
@@ -16,17 +13,6 @@ public class Options : MonoBehaviour
 
     //private Options getInstance() { return options = options == null ? new Options() : options; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //GenerationProcedural.semi
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
 
 }
