@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Full-procedural
+  m_text: Semi-procedural
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -559,6 +559,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 25723869}
   m_CullTransparentMesh: 1
+--- !u!1 &41014085 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1865213112567252320, guid: fd4ab595b088ae3489ee51a0caa47e83, type: 3}
+  m_PrefabInstance: {fileID: 1865213113850692580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &41014087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41014085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d555e96a9e2c840bff400ad031342e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &89720003
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,13 +668,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 103455116}
+  - component: {fileID: 103455117}
   m_Layer: 5
   m_Name: menu-option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &103455116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -683,6 +701,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &103455117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103455115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f61e70e828e4e44c8f78e52a4af0944, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &187440838
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 266017288}
   m_Layer: 5
-  m_Name: Semi
+  m_Name: Full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,7 +1786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Semi-procedural
+  m_text: Full-procedural
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1869,7 +1899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: -6.9}
+  m_AnchoredPosition: {x: -34.9, y: -9.8}
   m_SizeDelta: {x: 50, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550756652
@@ -2023,7 +2053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &603227816
 Transform:
   m_ObjectHideFlags: 0
@@ -2052,7 +2082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 673525314}
   m_Layer: 5
-  m_Name: Full
+  m_Name: Semi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3881,7 +3911,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1865213112567252321, guid: fd4ab595b088ae3489ee51a0caa47e83, type: 3}
   m_PrefabInstance: {fileID: 1865213113850692580}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 41014085}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 94ec5bad3861eec448524c982493241d, type: 3}
@@ -4673,8 +4703,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -110, y: -12.5}
-  m_SizeDelta: {x: 200, y: 25}
+  m_AnchoredPosition: {x: -177.9235, y: -15.1394}
+  m_SizeDelta: {x: 232.1531, y: 30.2789}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1972375813
 MonoBehaviour:
@@ -4723,7 +4753,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.6
+  m_fontSize: 22.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
