@@ -235,9 +235,9 @@ GameObject:
   - component: {fileID: 1374440487594780308}
   - component: {fileID: 1374440487594780309}
   - component: {fileID: 1374440487594780306}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (4)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -314,9 +314,9 @@ GameObject:
   - component: {fileID: 5842892970606284669}
   - component: {fileID: 7933355920550627187}
   - component: {fileID: 5178228151156783798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: route
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -834,9 +834,9 @@ GameObject:
   - component: {fileID: 4430073649907807360}
   - component: {fileID: 4430073649907807361}
   - component: {fileID: 4430073649907807366}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (2)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -912,9 +912,9 @@ GameObject:
   - component: {fileID: 5441045586504736289}
   - component: {fileID: 5441045586504736288}
   - component: {fileID: 5441045586504736295}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1102,9 +1102,9 @@ GameObject:
   - component: {fileID: 5947379356917369572}
   - component: {fileID: 5947379356917369573}
   - component: {fileID: 5947379356917369570}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (3)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1521,9 +1521,9 @@ GameObject:
   - component: {fileID: 7650551408771782077}
   - component: {fileID: 7650551408771782076}
   - component: {fileID: 7650551408771782075}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (1)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

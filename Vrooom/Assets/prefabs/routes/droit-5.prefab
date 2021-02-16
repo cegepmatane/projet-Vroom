@@ -242,9 +242,9 @@ GameObject:
   - component: {fileID: 798041923944241945}
   - component: {fileID: 798041923944241944}
   - component: {fileID: 798041923944241951}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (3)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,9 +432,9 @@ GameObject:
   - component: {fileID: 1056438065877127461}
   - component: {fileID: 1056438065877127460}
   - component: {fileID: 1056438065877127459}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -756,9 +756,9 @@ GameObject:
   - component: {fileID: 4524257303413768446}
   - component: {fileID: 4524257303413768447}
   - component: {fileID: 4524257303413768440}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (5)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -947,9 +947,9 @@ GameObject:
   - component: {fileID: 5962587848997869535}
   - component: {fileID: 5738908796198704870}
   - component: {fileID: 6428644767839695203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: route
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1360,9 +1360,9 @@ GameObject:
   - component: {fileID: 6653945887910919723}
   - component: {fileID: 6653945887910919722}
   - component: {fileID: 6653945887910919725}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (2)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1438,9 +1438,9 @@ GameObject:
   - component: {fileID: 7319422790746754247}
   - component: {fileID: 7319422790746754246}
   - component: {fileID: 7319422790746754241}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (6)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1792,9 +1792,9 @@ GameObject:
   - component: {fileID: 8430230138113322038}
   - component: {fileID: 8430230138113322039}
   - component: {fileID: 8430230138113322032}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (1)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2094,9 +2094,9 @@ GameObject:
   - component: {fileID: 8845741922728274161}
   - component: {fileID: 8845741922728274160}
   - component: {fileID: 8845741922728274167}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Checkpoint (4)
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

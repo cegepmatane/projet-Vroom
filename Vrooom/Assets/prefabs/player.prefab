@@ -42,9 +42,9 @@ GameObject:
   - component: {fileID: 1615391504656369090}
   - component: {fileID: 2435093429884653961}
   - component: {fileID: 720557734738823664}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: RoadBlock
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 1634204513655463838}
   - component: {fileID: 1634204513655463827}
   - component: {fileID: 1634204513655463826}
+  - component: {fileID: 3644974917995636795}
   m_Layer: 6
   m_Name: Car
   m_TagString: Untagged
@@ -376,3 +377,27 @@ PolygonCollider2D:
       - {x: 0.6525081, y: 1.1359401}
       - {x: 0.62291723, y: 1.3817645}
       - {x: 0.59286106, y: 1.4372151}
+--- !u!114 &3644974917995636795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634204513655463839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67c7e722ba14acd9153bb4488bff6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags: []
+  m_RaysPerDirection: 6
+  m_MaxRayDegrees: 90
+  m_SphereCastRadius: 0.4
+  m_RayLength: 28
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 640
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
