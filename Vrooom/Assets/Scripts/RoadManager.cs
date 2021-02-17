@@ -55,18 +55,19 @@ public class RoadManager : MonoBehaviour
 
     //Téléporte le joueur a la prochaine map
     public void teleportToNextMap(Player player) {
-        GameObject destination = null;
-        if (player.CurrentMapId == 0) {
+        GameObject destination = player.CurrentMap;
+        if (destination == null) {
             destination = map[0];
         } else {
+            int currentMapId = player.CurrentMap.GetInstanceID();
             for (int i = 0; i < map.Count; i++) {
-                if (map[i].GetInstanceID().Equals(player.CurrentMapId)) {
+                if (map[i].GetInstanceID().Equals(currentMapId)) {
                     destination = map[i+1];
                     break;
                 }
             }
         }
-        player.CurrentMapId = destination.GetInstanceID();
+        player.CurrentMap = destination;
 
         Road road = destination.GetComponent<Road>();
 

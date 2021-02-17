@@ -13,12 +13,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform positionRespawn;
 
-    int currentMapId = 0;
+    GameObject currentMap = null;
 
     [SerializeField]
     private Rigidbody2D carRigidBody;
 
-    public int CurrentMapId{ get { return currentMapId; } set { currentMapId = value; } }
+    public GameObject CurrentMap { get { return currentMap; } set { currentMap = value; } }
 
     public void setLastRespawnPoint(Transform transform) {
         Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, -90);
