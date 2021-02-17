@@ -13,12 +13,19 @@ public class CarMovement : MonoBehaviour
 	float maxStickyVelocity = 2.5f;
 	float minStickyVelocity = 1.5f; //pas implementer, peut-^etre plus tard
 
+
+	private AgentVoiture agentVoiture;
+	//Variables de controle
+	int movingState =  1; // 0 = brakes, 1 = nothing, 2 = vertical
+	float horizontal = 0f;
+
 	[SerializeField]
 	Player monPlayer;
 
 	void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
+		agentVoiture = GetComponent<AgentVoiture>();
 	}
 
     void FixedUpdate()
@@ -32,19 +39,27 @@ public class CarMovement : MonoBehaviour
 
 		rb.velocity = ForwardVelocity() + RightVelocity() * driftFactorSlippy;
 
-		if (Input.GetButton("Vertical"))
+		//if (Input.GetButton("Vertical"))
+		if (movingState == 2)
         {
 			rb.AddForce(transform.up * speedForce);
         }
 
-		if (Input.GetButton("Brakes"))
+		//if (Input.GetButton("Brakes"))
+		if (movingState == 0)
 		{
 			rb.AddForce(transform.up * -speedForce / 2f);
 		}
 
 		float tf = Mathf.Lerp(0, torqueForce, rb.velocity.magnitude / 2);
-		rb.angularVelocity = (Input.GetAxis("Horizontal") * -tf);
+		//rb.angularVelocity = (Input.GetAxis("Horizontal") * -tf);
+		rb.angularVelocity = (horizontal * -tf);
     }
+
+	public void SetInputs(int a_movingState, float a_horizontal) {
+		movingState = a_movingState;
+		horizontal = a_horizontal;
+	}
 
 	Vector2 ForwardVelocity()
     {
@@ -60,6 +75,9 @@ public class CarMovement : MonoBehaviour
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
 			if (checkpoint.confirmPlayer(monPlayer.gameObject)) {
 				monPlayer.setLastCheckPoint(checkpoint.SpawnPoint);
+
+				//IA feedback
+				agentVoiture.AddReward(1f);
 			}
 		}
     }
@@ -68,6 +86,10 @@ public class CarMovement : MonoBehaviour
     {
 		Debug.Log("Toucher le mur");
 		monPlayer.respawn();
+
+		//IA feedback
+		agentVoiture.AddReward(-1f);
+		agentVoiture.EndEpisode();
 	}
 
 }
