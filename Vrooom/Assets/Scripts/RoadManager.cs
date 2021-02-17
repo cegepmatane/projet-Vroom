@@ -53,7 +53,7 @@ public class RoadManager : MonoBehaviour
         }
     }
 
-    //Téléporte le joueur la prochaine map
+    //Téléporte le joueur a la prochaine map
     public void teleportToNextMap(Player player) {
         GameObject destination = null;
         if (player.CurrentMapId == 0) {
@@ -69,8 +69,9 @@ public class RoadManager : MonoBehaviour
         player.CurrentMapId = destination.GetInstanceID();
 
         Road road = destination.GetComponent<Road>();
-        player.setLastCheckPoint(road.GetStartLine());
-        player.respawn();
+
+        Checkpoint start = road.GetStartLine();
+        player.teleport(start.transform, start.BlockPoint);
     }
 
     public Road generateNext() {

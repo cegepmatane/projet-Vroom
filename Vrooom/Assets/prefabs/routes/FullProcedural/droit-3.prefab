@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213224663092082432}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,8 +269,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 213224663092082432}
+  blockPoint: {fileID: 213224663092082432}
   passageJoueurs: 
 --- !u!1 &345511423465520285
 GameObject:
@@ -347,8 +346,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 345511424923500635}
+  blockPoint: {fileID: 345511424923500635}
   passageJoueurs: 
 --- !u!1 &345511424910758389
 GameObject:
@@ -442,7 +440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 345511424923500635}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,8 +535,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 449458534932464678}
+  blockPoint: {fileID: 449458534932464678}
   passageJoueurs: 
 --- !u!1 &449458534932464673
 GameObject:
@@ -550,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 449458534932464678}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -744,7 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1831703079943029717}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,8 +836,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 1831703079943029717}
+  blockPoint: {fileID: 1831703079943029717}
   passageJoueurs: 
 --- !u!1 &1889759952197904081
 GameObject:
@@ -999,8 +995,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 1923559139024436568}
+  blockPoint: {fileID: 1923559139024436568}
   passageJoueurs: 
 --- !u!1 &1923559139024436575
 GameObject:
@@ -1012,7 +1007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1923559139024436568}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1400,7 +1395,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822233652682264420}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1495,8 +1490,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 4822233652682264420}
+  blockPoint: {fileID: 4822233652682264420}
   passageJoueurs: 
 --- !u!1 &5851974990236010107
 GameObject:
@@ -1573,8 +1567,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 1
-  spawnPoint: {fileID: 5851974991697623741}
+  blockPoint: {fileID: 5851974991697623741}
   passageJoueurs: 
 --- !u!1 &5851974991609441043
 GameObject:
@@ -1668,7 +1661,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5851974991697623741}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2190,8 +2183,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 7400499780605271649}
+  blockPoint: {fileID: 7400499780605271649}
   passageJoueurs: 
 --- !u!1 &7400499780492185551
 GameObject:
@@ -2285,7 +2277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7400499780605271649}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,8 +2512,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 8997646012578367465}
+  blockPoint: {fileID: 8997646012578367465}
   passageJoueurs: 
 --- !u!1 &8997646012578367470
 GameObject:
@@ -2533,7 +2524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8997646012578367465}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -25,6 +25,7 @@ public class Road : MonoBehaviour
     RoadManager roadManager;
 
     private void Start() {
+        checkpointList[0].setFirstCheckpoint();
         checkpointList[1].setSecondCheckpoint();
     }
 
@@ -64,6 +65,7 @@ public class Road : MonoBehaviour
             if (a_isFinish) {
                 //TODO Le joueur à terminé la course
                 Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à terminé la course!");
+                a_player.finish();
                 //TODO tout les joueurs on fini
                 FindObjectOfType<LevelLoader>().LoadFin(); //Pour tester
             } else {
@@ -110,9 +112,9 @@ public class Road : MonoBehaviour
         }
     }
 
-    public Transform GetStartLine() {
+    public Checkpoint GetStartLine() {
         if (!checkpointList[0].IsStart) { setStartLine(); }
-        return checkpointList[0].SpawnPoint;
+        return checkpointList[0];
     }
 
     public void setFinishLine() {

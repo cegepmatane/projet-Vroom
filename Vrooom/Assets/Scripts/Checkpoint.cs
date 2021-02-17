@@ -13,6 +13,7 @@ public class Checkpoint : MonoBehaviour
     Sprite[] imagesBackground = new Sprite[3];
     [Header("Options")]
 
+    bool isFirstCheckpoint = false;
     bool isSecondCheckpoint = false;
     bool isFinish = false;
     bool isStart = false;
@@ -21,14 +22,14 @@ public class Checkpoint : MonoBehaviour
     public bool IsStart { get { return isStart; } }
 
     [SerializeField]
-    Transform spawnPoint = null;
+    Transform blockPoint = null;
 
-    public Transform SpawnPoint { get { return spawnPoint; } }
+    public Transform BlockPoint { get { return blockPoint; } }
 
     public List<int> passageJoueurs = new List<int>();
 
     private void Start(){
-        updateApparence();
+        //updateApparence();
     }
 
     public void setStartLine() {
@@ -39,6 +40,10 @@ public class Checkpoint : MonoBehaviour
     public void setFinishLine() {
         isFinish = true;
         updateApparence();
+    }
+
+    public void setFirstCheckpoint() {
+        isFirstCheckpoint = true;
     }
 
     public void setSecondCheckpoint() {
@@ -69,18 +74,21 @@ public class Checkpoint : MonoBehaviour
     public bool confirmPlayer(Player a_player) {
         int instanceId = a_player.gameObject.GetInstanceID();
 
+        a_player.setLastCheckPoint(blockPoint);
+
         if (passageJoueurs.Contains(instanceId)) { return false; }
         passageJoueurs.Add(instanceId);
 
         Road road = transform.parent.GetComponentInParent<Road>();
 
-        a_player.setLastCheckPoint(spawnPoint);
+        if (isFirstCheckpoint || isSecondCheckpoint)
+            a_player.setLastRespawnPoint(transform);
 
-        if (isFinish || isStart) {
-            road.nextTurn(a_player, isFinish);
-        } else if (isSecondCheckpoint) {
+        if (isSecondCheckpoint)
             road.triggerRoadEngaged(instanceId);
-        }
+
+        if (isFinish || isStart)
+            road.nextTurn(a_player, isFinish);
 
         return true;
     }

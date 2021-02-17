@@ -174,7 +174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4871814007349990554}
   m_Layer: 8
-  m_Name: SpawnPoint
+  m_Name: BlockPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -269,6 +269,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d0c2d135c7f49cb46ad75d769f872ec3, type: 3}
   - {fileID: 21300000, guid: ee2b85b9572331445b52a9e5e78df151, type: 3}
   - {fileID: 21300000, guid: 94e7c92e80e98b74b991bdeadc3c9c8b, type: 3}
-  isNextRoadTrigger: 0
-  spawnPoint: {fileID: 4871814007349990554}
+  blockPoint: {fileID: 4871814007349990554}
   passageJoueurs: 

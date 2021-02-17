@@ -83,6 +83,8 @@ public class CarMovement : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
 		Debug.Log("Toucher le mur");
+		//ON EPISODE START??
+		//TODO reset player
 		monPlayer.respawn();
 
 		//IA feedback

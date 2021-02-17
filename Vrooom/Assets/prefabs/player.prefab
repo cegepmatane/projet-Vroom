@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615391504012802309}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1615391504656369091}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_Father: {fileID: 1634204513547370006}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615391504656369092
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,10 +58,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1615391504012802306}
+  m_Children: []
   m_Father: {fileID: 1634204513547370006}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &1615391504656369090
 EdgeCollider2D:
@@ -79,8 +78,10 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0, y: 3}
-  - {x: 0, y: -3}
+  - {x: 2, y: 2}
+  - {x: 0, y: 2}
+  - {x: 0, y: -2}
+  - {x: 2, y: -2}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -126,6 +127,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1634204513655463824}
+  - {fileID: 1615391504012802306}
   - {fileID: 1615391504656369091}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -145,6 +147,7 @@ MonoBehaviour:
   positionVoiture: {fileID: 1634204513655463824}
   positionRoadBlock: {fileID: 1615391504656369091}
   positionRespawn: {fileID: 1615391504012802306}
+  carRigidBody: {fileID: 1634204513655463838}
 --- !u!1 &1634204513655463839
 GameObject:
   m_ObjectHideFlags: 0
