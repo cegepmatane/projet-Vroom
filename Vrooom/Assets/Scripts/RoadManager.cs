@@ -70,7 +70,6 @@ public class RoadManager : MonoBehaviour
 
         Road road = destination.GetComponent<Road>();
         player.setLastCheckPoint(road.GetStartLine());
-        road.confirmFirstPlayersCheckpoint(joueurs);
         player.respawn();
     }
 
@@ -121,11 +120,6 @@ public class RoadManager : MonoBehaviour
         if (map.Count == nombreDeRoad) {
             Debug.Log("nextRoad = Dernière Road!");
             nextRoad.setFinishLine();
-        }
-
-        //Si le mode est semi procédural
-        if (generationProcedural == GenerationProcedural.semi) {
-            nextRoad.confirmFirstPlayersCheckpoint(joueurs);
         }
 
         return nextRoad;

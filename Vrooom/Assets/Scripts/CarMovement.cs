@@ -73,9 +73,7 @@ public class CarMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
 		Checkpoint checkpoint;
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
-			if (checkpoint.confirmPlayer(monPlayer.gameObject)) {
-				monPlayer.setLastCheckPoint(checkpoint.SpawnPoint);
-
+			if (checkpoint.confirmPlayer(monPlayer)) {
 				//IA feedback
 				agentVoiture.AddReward(1f);
 			}

@@ -12,8 +12,8 @@ public class Checkpoint : MonoBehaviour
     [SerializeField]
     Sprite[] imagesBackground = new Sprite[3];
     [Header("Options")]
-    [SerializeField]
-    bool isNextRoadTrigger = false;
+
+    bool isSecondCheckpoint = false;
     bool isFinish = false;
     bool isStart = false;
 
@@ -41,6 +41,10 @@ public class Checkpoint : MonoBehaviour
         updateApparence();
     }
 
+    public void setSecondCheckpoint() {
+        isSecondCheckpoint = true;
+    }
+
     private void updateApparence() {
 
         if (!isStart && !isFinish) {
@@ -62,21 +66,20 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    public bool confirmPlayer(GameObject player) {
-        int instanceId = player.GetInstanceID();
+    public bool confirmPlayer(Player a_player) {
+        int instanceId = a_player.gameObject.GetInstanceID();
+
         if (passageJoueurs.Contains(instanceId)) { return false; }
         passageJoueurs.Add(instanceId);
 
+        Road road = transform.parent.GetComponentInParent<Road>();
+
+        a_player.setLastCheckPoint(spawnPoint);
 
         if (isFinish || isStart) {
-            Road road = transform.parent.GetComponentInParent<Road>();
-            road.nextTurn(player, isFinish);
-            return true;
-        }
-
-        if (isNextRoadTrigger) {
-            transform.parent.GetComponentInParent<Road>().activerPremierCheckpoint(player.GetInstanceID());
-            return true;
+            road.nextTurn(a_player, isFinish);
+        } else if (isSecondCheckpoint) {
+            road.triggerRoadEngaged(instanceId);
         }
 
         return true;
