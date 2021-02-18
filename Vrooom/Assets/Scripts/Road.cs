@@ -39,9 +39,23 @@ public class Road : MonoBehaviour
     public void configure(RoadManager a_roadManager, int a_prefTours, List<GameObject> a_players) {
         roadManager = a_roadManager;
         learnPlayers(a_players);
+
+        sendCheckpoints();
+
         //Si la map est une boucle, permettre de faire plusieurs tours (si demandé)
         if (!isLoop) { return; }
         tours = a_prefTours;
+    }
+
+    private void sendCheckpoints() {
+        Transform Destinationparent = roadManager.CheckpointList;
+        GameObject localParent = null;
+        foreach (Checkpoint checkpoint in checkpointList) {
+            if (localParent == null) { localParent = checkpoint.transform.parent.gameObject; }
+            checkpoint.setRoad(this);
+            checkpoint.gameObject.transform.parent = Destinationparent;
+        }
+        Destroy(localParent);
     }
 
     //Cette fonction est appelé par un checkpoint (start) ou (finish)

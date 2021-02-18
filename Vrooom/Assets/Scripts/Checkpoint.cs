@@ -18,6 +18,8 @@ public class Checkpoint : MonoBehaviour
     bool isFinish = false;
     bool isStart = false;
 
+    Road road = null;
+
     public bool IsFinish { get { return isFinish; } }
     public bool IsStart { get { return isStart; } }
 
@@ -29,7 +31,7 @@ public class Checkpoint : MonoBehaviour
     public List<int> passageJoueurs = new List<int>();
 
     private void Start(){
-        //updateApparence();
+        updateApparence();
     }
 
     public void setStartLine() {
@@ -48,6 +50,10 @@ public class Checkpoint : MonoBehaviour
 
     public void setSecondCheckpoint() {
         isSecondCheckpoint = true;
+    }
+
+    public void setRoad(Road a_road) {
+        road = a_road;
     }
 
     private void updateApparence() {
@@ -78,8 +84,6 @@ public class Checkpoint : MonoBehaviour
 
         if (passageJoueurs.Contains(instanceId)) { return false; }
         passageJoueurs.Add(instanceId);
-
-        Road road = transform.parent.GetComponentInParent<Road>();
 
         if (isFirstCheckpoint || isSecondCheckpoint)
             a_player.setLastRespawnPoint(transform);

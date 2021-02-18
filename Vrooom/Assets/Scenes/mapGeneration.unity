@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &201009701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 201009702}
+  m_Layer: 0
+  m_Name: Maps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &201009702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201009701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075630141}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +250,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &523306208
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 523306209}
+  m_Layer: 0
+  m_Name: CheckpointList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &523306209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 523306208}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2075630141}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &974140567 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1634204513655463824, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
@@ -289,6 +349,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1615391504012802306, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615391504012802306, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615391504012802306, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615391504012802306, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615391504012802306, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1634204513547370006, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -376,12 +456,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194a9c44d90ff2441b82699886db1ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nombreDeRoad: 3
+  nombreDeRoad: 4
   generationProcedural: 1
   toursParRoad: 2
   roadPrefabsSemiProc:
   - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
-  - {fileID: 7562889086805474590, guid: aace2953b7f8704498926f036b1692cb, type: 3}
   roadPrefabsFullProc:
   - {fileID: 5237936313270572922, guid: 7aa3eb2a88626ca488dcc731d075890e, type: 3}
   - {fileID: 8934567721906138442, guid: d7fcf8c38492b4a47ba00eadf469a51d, type: 3}
@@ -397,7 +476,8 @@ MonoBehaviour:
   - {fileID: 3437339899140654155, guid: 3991832393f9a284ca78f78bfed6e97b, type: 3}
   - {fileID: 2144005502664676460, guid: 33a218d878c0cb64bbba3960faa7eba4, type: 3}
   - {fileID: 3610236024266148539, guid: e26d933197a6a3c40b715042bd7c0e38, type: 3}
-  map: []
+  Maps: {fileID: 201009702}
+  checkpointList: {fileID: 523306209}
 --- !u!4 &2075630141
 Transform:
   m_ObjectHideFlags: 0
@@ -408,7 +488,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.4638565, y: 2.2882946, z: -21.930363}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 201009702}
+  - {fileID: 523306209}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

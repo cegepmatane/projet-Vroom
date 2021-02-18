@@ -34,7 +34,14 @@ public class RoadManager : MonoBehaviour
     List<GameObject> roadPrefabsFullProc;
 
     [SerializeField]
-    List<GameObject> map = new List<GameObject>();
+    Transform Maps;
+
+    [SerializeField]
+    Transform checkpointList;
+
+    public Transform CheckpointList { get { return checkpointList; } }
+
+    int mapCounter = 0;
 
     List<GameObject> joueurs = new List<GameObject>();
 
@@ -57,15 +64,11 @@ public class RoadManager : MonoBehaviour
     public void teleportToNextMap(Player player) {
         GameObject destination = player.CurrentMap;
         if (destination == null) {
-            destination = map[0];
+            destination = Maps.GetChild(0).gameObject;
         } else {
-            int currentMapId = player.CurrentMap.GetInstanceID();
-            for (int i = 0; i < map.Count; i++) {
-                if (map[i].GetInstanceID().Equals(currentMapId)) {
-                    destination = map[i+1];
-                    break;
-                }
-            }
+            int index = player.CurrentMap.transform.GetSiblingIndex();
+            if (index < (mapCounter - 1))
+                destination = Maps.GetChild(index + 1).gameObject;
         }
         player.CurrentMap = destination;
 
@@ -77,7 +80,7 @@ public class RoadManager : MonoBehaviour
 
     public Road generateNext() {
         //Si un nombre de road est ciblé ET que ce nombre est atteint.
-        if (nombreDeRoad > 0 && map.Count >= nombreDeRoad) { return null; } //ne rien faire
+        if (nombreDeRoad > 0 && mapCounter >= nombreDeRoad) { return null; } //ne rien faire
 
         //get un segment (Road) prefab random
         int indexNext = -1;
@@ -97,15 +100,11 @@ public class RoadManager : MonoBehaviour
         }
 
         //Crée la prochaine Road
-        GameObject nextRoadObject = null;
-        if (map.Count <= 0) {
-            nextRoadObject = Instantiate(nextPrefab);
-        }
-        else {
-            Transform nextSpawnPoint = map[map.Count-1].GetComponent<Road>().NextSpawnPoint;
-            Vector3 position = new Vector3(nextSpawnPoint.position.x, nextSpawnPoint.position.y, nextSpawnPoint.position.z);
-            //nextRoadObject = Instantiate(nextPrefab, position, Quaternion.identity);
-            nextRoadObject = Instantiate(nextPrefab);
+        GameObject nextRoadObject = Instantiate(nextPrefab);
+        nextRoadObject.transform.parent = Maps;
+
+        if (mapCounter > 0) {
+            Transform nextSpawnPoint = Maps.GetChild(mapCounter - 1).GetComponent<Road>().NextSpawnPoint;
             nextRoadObject.transform.SetPositionAndRotation(nextSpawnPoint.position, nextSpawnPoint.rotation);
         }
 
@@ -114,12 +113,12 @@ public class RoadManager : MonoBehaviour
             return null;
         }
 
-        map.Add(nextRoadObject);
+        mapCounter++;
         Road nextRoad = nextRoadObject.GetComponent<Road>();
         nextRoad.configure(this,toursParRoad, joueurs);
 
         //Si les nombre de road sible est atteint, ajouter une ligne d'arrivée sur la derrnière road
-        if (map.Count == nombreDeRoad) {
+        if (mapCounter == nombreDeRoad) {
             Debug.Log("nextRoad = Dernière Road!");
             nextRoad.setFinishLine();
         }
