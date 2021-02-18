@@ -434,6 +434,7 @@ MonoBehaviour:
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
   carMovement: {fileID: 1634204513655463827}
+  player: {fileID: 2049388450538402855}
 --- !u!114 &91238894444500571
 MonoBehaviour:
   m_ObjectHideFlags: 0

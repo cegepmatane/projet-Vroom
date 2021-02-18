@@ -425,6 +425,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1939417632831460625, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
 --- !u!1 &2075630139
@@ -460,7 +464,7 @@ MonoBehaviour:
   generationProcedural: 1
   toursParRoad: 2
   roadPrefabsSemiProc:
-  - {fileID: 5635799074902447551, guid: 5aca96749408b2d42a305aff6bebcfd9, type: 3}
+  - {fileID: 2661879253786493525, guid: d119fa4da48e9fd4ab2aa36268a73e75, type: 3}
   roadPrefabsFullProc:
   - {fileID: 5237936313270572922, guid: 7aa3eb2a88626ca488dcc731d075890e, type: 3}
   - {fileID: 8934567721906138442, guid: d7fcf8c38492b4a47ba00eadf469a51d, type: 3}

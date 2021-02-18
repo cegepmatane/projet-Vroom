@@ -10,14 +10,15 @@ public class AgentVoiture : Agent
     [SerializeField]
     private CarMovement carMovement;
 
-    public override void CollectObservations(VectorSensor sensor)
-    {
-        sensor.AddObservation(gameObject.transform);
+    [SerializeField]
+    private Player player;
+
+    public override void CollectObservations(VectorSensor sensor) {
+        float direction = Vector3.Dot(carMovement.transform.up, player.NextCheckpointDirection);
+        sensor.AddObservation(direction);
     }
 
     public override void OnActionReceived(ActionBuffers actions) {
-        //Debug.Log("H : " + actions.ContinuousActions[0] + " | V : " + actions.DiscreteActions[0]);
-
         carMovement.SetInputs(actions.DiscreteActions[0], actions.ContinuousActions[0]);
     }
 

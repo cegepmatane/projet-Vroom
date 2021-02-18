@@ -15,10 +15,20 @@ public class Player : MonoBehaviour
 
     GameObject currentMap = null;
 
+    RoadManager roadManager = null;
+
     [SerializeField]
     private Rigidbody2D carRigidBody;
 
+    Vector3 nextCheckpointDirection = Vector3.zero;
+
+    public Vector3 NextCheckpointDirection { get { return nextCheckpointDirection; } }
+
     public GameObject CurrentMap { get { return currentMap; } set { currentMap = value; } }
+
+    private void Start() {
+        roadManager = FindObjectOfType<RoadManager>();
+    }
 
     public void setLastRespawnPoint(Transform transform) {
         Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, -90);
@@ -27,6 +37,10 @@ public class Player : MonoBehaviour
 
     public void setLastCheckPoint(Transform transform) {
         positionRoadBlock.SetPositionAndRotation(transform.position, transform.rotation);
+
+        int index = transform.parent.GetSiblingIndex() + 1;
+        if (roadManager.CheckpointList.childCount > index)
+            nextCheckpointDirection = roadManager.CheckpointList.GetChild(index).right;
     }
 
     public void teleport(Transform a_spawnPoint, Transform a_blockPoint) {
