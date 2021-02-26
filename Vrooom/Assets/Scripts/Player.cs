@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     public Vector3 NextCheckpointDirection { get { return nextCheckpointDirection; } }
 
     public GameObject CurrentMap { get { return currentMap; } set { currentMap = value; } }
+    public int RoadBlockID { get { return positionRoadBlock.gameObject.GetInstanceID(); } }
 
     private void Start() {
         roadManager = FindObjectOfType<RoadManager>();
@@ -55,6 +56,9 @@ public class Player : MonoBehaviour
     }
 
     public void finish() {
-        gameObject.SetActive(false);
+        AgentVoiture agent = GetComponentInChildren<AgentVoiture>();
+        agent.AddReward(2f);
+        agent.EndEpisode();
+        //gameObject.SetActive(false);
     }
 }
