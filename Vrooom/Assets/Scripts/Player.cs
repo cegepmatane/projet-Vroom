@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Transform positionRespawn;
 
+    [SerializeField]
+    AgentVoiture agent;
+
     GameObject currentMap = null;
 
     RoadManager roadManager = null;
@@ -55,9 +58,13 @@ public class Player : MonoBehaviour
         carRigidBody.velocity = Vector2.zero;
     }
 
+    public void rewardAgent(int a_value) {
+        Debug.Log(a_value + "");
+        agent.AddReward(a_value);
+    }
+
     public void finish() {
-        AgentVoiture agent = GetComponentInChildren<AgentVoiture>();
-        agent.AddReward(2f);
+        rewardAgent(3);
         agent.EndEpisode();
         //gameObject.SetActive(false);
     }

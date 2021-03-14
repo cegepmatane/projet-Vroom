@@ -13,6 +13,11 @@ public class AgentVoiture : Agent
     [SerializeField]
     private Player player;
 
+    public override void OnEpisodeBegin() {
+        player.respawn();
+        player.CurrentMap.GetComponent<Road>().resetPlayer(player.gameObject.GetInstanceID());
+    }
+
     public override void CollectObservations(VectorSensor sensor) {
         float direction = Vector3.Dot(carMovement.transform.up, player.NextCheckpointDirection);
         sensor.AddObservation(direction);

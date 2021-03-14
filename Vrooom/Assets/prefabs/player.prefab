@@ -147,6 +147,7 @@ MonoBehaviour:
   positionVoiture: {fileID: 1634204513655463824}
   positionRoadBlock: {fileID: 1615391504656369091}
   positionRespawn: {fileID: 1615391504012802306}
+  agent: {fileID: 5791393133862364100}
   carRigidBody: {fileID: 1634204513655463838}
 --- !u!1 &1634204513655463839
 GameObject:

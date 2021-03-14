@@ -85,7 +85,7 @@ public class Checkpoint : MonoBehaviour
         if (passageJoueurs.Contains(instanceId)) { return false; }
         passageJoueurs.Add(instanceId);
 
-        if (isFirstCheckpoint || isSecondCheckpoint)
+        if (isStart)
             a_player.setLastRespawnPoint(transform);
 
         if (isSecondCheckpoint)

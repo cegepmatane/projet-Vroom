@@ -93,10 +93,6 @@ public class CarMovement : MonoBehaviour
 
 	private void crash() {
 		///Debug.Log("Toucher le mur");
-		//ON EPISODE START??
-		monPlayer.respawn();
-		monPlayer.CurrentMap.GetComponent<Road>().resetPlayer(monPlayer.gameObject.GetInstanceID());
-
 
 		//IA feedback
 		agentVoiture.AddReward(-1f);

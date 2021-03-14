@@ -70,9 +70,10 @@ public class Road : MonoBehaviour
             //Le joueur à fini un tour (c'est vérifié)
             tourDesJoueurs[instanceId]++;
             Debug.Log(gameObject.name + " : " + instanceId + " +1 tours!");
+            a_player.rewardAgent(2);
 
-            //Si il reste des tours au joueur
-            if (tourDesJoueurs[instanceId] < tours) { resetPlayer(instanceId); return; } //reset le joueur et Ne rien faire
+        //Si il reste des tours au joueur
+        if (tourDesJoueurs[instanceId] < tours) { resetPlayer(instanceId); return; } //reset le joueur et Ne rien faire
 
             Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à fini tout ses tours sur cette road!");
 
@@ -95,11 +96,11 @@ public class Road : MonoBehaviour
         return true;
     }
 
-    //Reset tout les checkpoints (sauf le checkpoint de départ)
+    //Reset tout les checkpoints
     //Utilisé a la fin d'un tour pour débuter le prochain
     public void resetPlayer(int a_instanceId) {
         Debug.Log("Reset les checkpoints de {" + a_instanceId + "} sur la map : " + gameObject.GetInstanceID());
-        for (int i = 1; i < checkpointList.Count; i++) {
+        for (int i = 0; i < checkpointList.Count; i++) {
             checkpointList[i].resetPlayer(a_instanceId);
         }
     }
