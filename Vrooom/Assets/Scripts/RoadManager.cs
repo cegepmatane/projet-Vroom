@@ -20,16 +20,13 @@ public class RoadManager : MonoBehaviour
 
     public GenerationProcedural GetGenerationProcedural { get { return generationProcedural; } }
 
-    [Header("Options Semi Procédural")]
-    [Tooltip("Nombre de tours demandé sur chaque Road. Si une Road n'est pas une boucle la valeur sera forcé à 1 sinon elle prendra celle-ci")]
     [SerializeField]
+    [Tooltip("Nombre de tours demandé sur chaque Road. Si une Road n'est pas une boucle la valeur sera forcé à 1 sinon elle prendra celle-ci")]
     int toursParRoad = 1;
 
     [SerializeField]
     List<GameObject> roadPrefabsSemiProc;
 
-
-    [Header("Options Full Procédural")]
     [SerializeField]
     List<GameObject> roadPrefabsFullProc;
 
@@ -45,18 +42,27 @@ public class RoadManager : MonoBehaviour
 
     List<GameObject> joueurs = new List<GameObject>();
 
-    void Start() {
-        //Récupérer une référence à tout les joueurs/AI en jeu
-        Player[] players = FindObjectsOfType<Player>();
+    public void configure(GenerationProcedural mode, int nbCarte, int nbTours, Player[] players) {
+        generationProcedural = mode;
+
+        if (generationProcedural == GenerationProcedural.semi) {
+            nombreDeRoad = nbCarte;
+            toursParRoad = nbTours;
+        } else { 
+            nombreDeRoad = 4; 
+        }
+
         for (int i = 0; i < players.Length; i++) {
             joueurs.Add(players[i].gameObject);
         }
+    }
 
+    public void Begin() { 
         generateNext();
 
-        for (int j = 0; j < players.Length; j++) {
+        for (int j = 0; j < joueurs.Count; j++) {
             //Placer les joueurs sur la ligne de départ
-            teleportToNextMap(players[j]);
+            teleportToNextMap(joueurs[j].GetComponent<Player>());
         }
     }
 
