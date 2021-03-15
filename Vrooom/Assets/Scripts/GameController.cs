@@ -8,10 +8,13 @@ public class GameController : MonoBehaviour
     [SerializeField]
     RoadManager roadManager;
 
+    [SerializeField]
+    Player[] players;
+
     void Start()
     {
         //Création des joueurs??
-        Player[] players = FindObjectsOfType<Player>();
+        //Player[] players = FindObjectsOfType<Player>();
 
         //Configuration de la partie en fonction de menu options et des joueurs crées
         roadManager.configure(Options.modeProcedural, Options.nbrCarte, Options.nbrTours, players);

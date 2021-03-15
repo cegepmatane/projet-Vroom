@@ -4,10 +4,10 @@ public class Options
 {
 
     //private Options options = null;
-    public static GenerationProcedural modeProcedural;
-    public static int nbrSegment;
-    public static int nbrCarte;
-    public static int nbrTours;
+    public static GenerationProcedural modeProcedural = GenerationProcedural.semi;
+    public static int nbrSegment = 1;
+    public static int nbrCarte = 1;
+    public static int nbrTours = 1;
 
     
 
