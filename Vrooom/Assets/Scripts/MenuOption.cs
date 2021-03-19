@@ -42,6 +42,10 @@ public class MenuOption : MonoBehaviour
         {
             return;
         }
+        nbrCarte.readOnly = true;
+        nbrTours.readOnly = true;
+        nbrCarte.text = "1";
+        nbrTours.text = "1";
         Options.modeProcedural = GenerationProcedural.full;
         Debug.Log(Options.modeProcedural);
     }
@@ -52,6 +56,8 @@ public class MenuOption : MonoBehaviour
         {
             return;
         }
+        nbrCarte.readOnly = false;
+        nbrTours.readOnly = false;
         Options.modeProcedural = GenerationProcedural.semi;
         Debug.Log(Options.modeProcedural);
     }
