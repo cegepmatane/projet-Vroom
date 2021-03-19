@@ -36,6 +36,9 @@ public class RoadManager : MonoBehaviour
     [SerializeField]
     Transform checkpointList;
 
+    [SerializeField]
+    bool AllowConfigure;
+
     public Transform CheckpointList { get { return checkpointList; } }
 
     int mapCounter = 0;
@@ -43,6 +46,12 @@ public class RoadManager : MonoBehaviour
     List<GameObject> joueurs = new List<GameObject>();
 
     public void configure(GenerationProcedural mode, int nbCarte, int nbTours, Player[] players) {
+        for (int i = 0; i < players.Length; i++) {
+            joueurs.Add(players[i].gameObject);
+        }
+
+        if (!AllowConfigure) { return; }
+
         generationProcedural = mode;
 
         if (generationProcedural == GenerationProcedural.semi) {
@@ -50,11 +59,7 @@ public class RoadManager : MonoBehaviour
             toursParRoad = nbTours;
         } else { 
             nombreDeRoad = 4; 
-        }
-
-        for (int i = 0; i < players.Length; i++) {
-            joueurs.Add(players[i].gameObject);
-        }
+        } 
     }
 
     public void Begin() { 
@@ -112,6 +117,8 @@ public class RoadManager : MonoBehaviour
         if (mapCounter > 0) {
             Transform nextSpawnPoint = Maps.GetChild(mapCounter - 1).GetComponent<Road>().NextSpawnPoint;
             nextRoadObject.transform.SetPositionAndRotation(nextSpawnPoint.position, nextSpawnPoint.rotation);
+        } else {
+            nextRoadObject.transform.SetPositionAndRotation(transform.position, transform.rotation);
         }
 
         if (nextRoadObject == null) {

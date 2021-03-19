@@ -99,7 +99,7 @@ public class Road : MonoBehaviour
     //Reset tout les checkpoints
     //Utilisé a la fin d'un tour pour débuter le prochain
     public void resetPlayer(int a_instanceId) {
-        Debug.Log("Reset les checkpoints de {" + a_instanceId + "} sur la map : " + gameObject.GetInstanceID());
+        //Debug.Log("Reset les checkpoints de {" + a_instanceId + "} sur la map : " + gameObject.GetInstanceID());
         for (int i = 0; i < checkpointList.Count; i++) {
             checkpointList[i].resetPlayer(a_instanceId);
         }
