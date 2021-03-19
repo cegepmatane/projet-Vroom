@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     bool isLearning;
 
+    [SerializeField]
+    bool isBot;
+
     GameObject currentMap = null;
 
     RoadManager roadManager = null;
@@ -36,6 +39,7 @@ public class Player : MonoBehaviour
     public GameObject CurrentMap { get { return currentMap; } set { currentMap = value; } }
     public int RoadBlockID { get { return positionRoadBlock.gameObject.GetInstanceID(); } }
     public bool IsLearning { get { return isLearning; } }
+    public bool IsBot { get { return isBot; } }
 
     private void Start() {
         roadManager = FindObjectOfType<RoadManager>();
@@ -73,6 +77,8 @@ public class Player : MonoBehaviour
     public void finish() {
         rewardAgent(3);
         agent.EndEpisode();
-        //gameObject.SetActive(false);
+
+        if (!isLearning)
+            gameObject.SetActive(false);
     }
 }

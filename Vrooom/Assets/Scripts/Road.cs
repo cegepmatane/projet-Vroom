@@ -82,7 +82,8 @@ public class Road : MonoBehaviour
                 Debug.Log(gameObject.name + " : Le joueur " + instanceId + " à terminé la course!");
                 a_player.finish();
                 //TODO tout les joueurs on fini
-                FindObjectOfType<LevelLoader>().LoadFin(); //Pour tester
+                if (!a_player.IsBot && !a_player.IsLearning)
+                    FindObjectOfType<LevelLoader>().LoadFin(); //Pour tester
             } else {
                 Debug.Log(gameObject.name + " : Le joueur " + instanceId + " se téléporte!");
                 roadManager.teleportToNextMap(a_player);
