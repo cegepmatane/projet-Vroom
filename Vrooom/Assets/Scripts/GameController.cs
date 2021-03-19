@@ -21,6 +21,14 @@ public class GameController : MonoBehaviour
 
         //Début de la partie
         roadManager.Begin();
+
+        activatePlayers();
+    }
+
+    private void activatePlayers() {
+        foreach (Player player in players) {
+            player.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     GameObject currentMap = null;
 
+    [SerializeField]
     RoadManager roadManager = null;
 
     [SerializeField]
@@ -40,10 +41,6 @@ public class Player : MonoBehaviour
     public int RoadBlockID { get { return positionRoadBlock.gameObject.GetInstanceID(); } }
     public bool IsLearning { get { return isLearning; } }
     public bool IsBot { get { return isBot; } }
-
-    private void Start() {
-        roadManager = FindObjectOfType<RoadManager>();
-    }
 
     public void setLastRespawnPoint(Transform transform) {
         Quaternion rotation = transform.rotation * Quaternion.Euler(0, 0, -90);

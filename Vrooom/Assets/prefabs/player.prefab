@@ -114,7 +114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1634204513547370006
 Transform:
   m_ObjectHideFlags: 0
@@ -149,6 +149,7 @@ MonoBehaviour:
   positionRespawn: {fileID: 1615391504012802306}
   agent: {fileID: 5791393133862364100}
   isLearning: 0
+  isBot: 0
   carRigidBody: {fileID: 1634204513655463838}
   carMovement: {fileID: 1634204513655463827}
 --- !u!1 &1634204513655463839
