@@ -101,9 +101,10 @@ public class CarMovement : MonoBehaviour
 
 		//IA feedback
 		agentVoiture.AddReward(-1f);
-		if (!monPlayer.IsLearning || forceRespawn)
+		if (!monPlayer.IsLearning || forceRespawn) {
 			if (forceRespawn) agentVoiture.SetReward(-1);
 			agentVoiture.EndEpisode();
+		}
 	}
 
 }
