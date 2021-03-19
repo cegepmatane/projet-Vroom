@@ -82,21 +82,28 @@ public class CarMovement : MonoBehaviour
 		RoadBlock roadblock;
 		if (collision.TryGetComponent<RoadBlock>(out roadblock)) {
 			if (roadblock.gameObject.GetInstanceID() == monPlayer.RoadBlockID ) {
-				crash();
+				crash(true);
 			}
 		}
     }
 
-    private void OnCollisionStay2D(Collision2D collision){
-		crash();
+    private void OnCollisionEnter2D(Collision2D collision) {
+		agentVoiture.AddReward(-4f);
+		crash(false);
 	}
 
-	private void crash() {
+    private void OnCollisionStay2D(Collision2D collision){
+		crash(false);
+	}
+
+	private void crash(bool forceRespawn) {
 		///Debug.Log("Toucher le mur");
 
 		//IA feedback
 		agentVoiture.AddReward(-1f);
-		agentVoiture.EndEpisode();
+		if (!monPlayer.IsLearning || forceRespawn)
+			if (forceRespawn) agentVoiture.SetReward(-1);
+			agentVoiture.EndEpisode();
 	}
 
 }
