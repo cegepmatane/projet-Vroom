@@ -13,6 +13,8 @@ public class CarMovement : MonoBehaviour
 	float maxStickyVelocity = 2.5f;
 	float minStickyVelocity = 1.5f; //pas implementer, peut-^etre plus tard
 
+	private int crashInARow = 0;
+	private int crashInARowThreshold = 100;
 
 	private AgentVoiture agentVoiture;
 	//Variables de controle
@@ -76,6 +78,7 @@ public class CarMovement : MonoBehaviour
 			if (checkpoint.confirmPlayer(monPlayer)) {
 				//IA feedback
 				agentVoiture.AddReward(1f);
+				resetCrashInRow();
 			}
 		}
 
@@ -96,15 +99,24 @@ public class CarMovement : MonoBehaviour
 		crash(false);
 	}
 
-	private void crash(bool forceRespawn) {
+	private void crash(bool a_forceRespawn) {
 		///Debug.Log("Toucher le mur");
+		crashInARow++;
+
+		if (crashInARow >= crashInARowThreshold) {
+			a_forceRespawn = true;
+		}
+			
 
 		//IA feedback
 		agentVoiture.AddReward(-1f);
-		if (!monPlayer.IsLearning || forceRespawn) {
-			if (forceRespawn) agentVoiture.SetReward(-1);
+		if (!monPlayer.IsLearning || a_forceRespawn) {
+			if (a_forceRespawn) agentVoiture.SetReward(-1);
 			agentVoiture.EndEpisode();
 		}
 	}
 
+	public void resetCrashInRow() {
+		crashInARow = 0;
+	}
 }

@@ -26,6 +26,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Rigidbody2D carRigidBody;
 
+    [SerializeField]
+    private CarMovement carMovement;
+
     Vector3 nextCheckpointDirection = Vector3.zero;
 
     public Vector3 NextCheckpointDirection { get { return nextCheckpointDirection; } }
@@ -60,10 +63,10 @@ public class Player : MonoBehaviour
     public void respawn() {
         positionVoiture.SetPositionAndRotation(positionRespawn.position, positionRespawn.rotation);
         carRigidBody.velocity = Vector2.zero;
+        carMovement.resetCrashInRow();
     }
 
     public void rewardAgent(int a_value) {
-        Debug.Log(a_value + "");
         agent.AddReward(a_value);
     }
 
