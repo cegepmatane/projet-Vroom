@@ -5643,7 +5643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34797eaffb931b499b93edf8576d9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoop: 0
+  isLoop: 1
   checkpointList:
   - {fileID: 8179747950540865162}
   - {fileID: 3982362501003645413}
