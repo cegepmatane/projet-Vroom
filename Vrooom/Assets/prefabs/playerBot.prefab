@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1634204513547370006}
   - component: {fileID: 2049388450538402855}
   m_Layer: 0
-  m_Name: player
+  m_Name: playerBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
   positionRespawn: {fileID: 1615391504012802306}
   agent: {fileID: 5791393133862364100}
   isLearning: 0
-  isBot: 0
+  isBot: 1
   roadManager: {fileID: 0}
   carRigidBody: {fileID: 1634204513655463838}
   carMovement: {fileID: 1634204513655463827}
@@ -382,13 +382,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RayPerceptionSensor
   m_DetectableTags: []
-  m_RaysPerDirection: 6
+  m_RaysPerDirection: 3
   m_MaxRayDegrees: 90
   m_SphereCastRadius: 0.5
   m_RayLength: 28
   m_RayLayerMask:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 132
   m_ObservationStacks: 1
   rayHitColor: {r: 1, g: 0, b: 0, a: 1}
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 1
+    VectorObservationSize: 2
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 1
@@ -416,7 +416,7 @@ MonoBehaviour:
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
-  m_BehaviorType: 0
+  m_BehaviorType: 2
   m_BehaviorName: CarRace
   TeamId: 0
   m_UseChildSensors: 1

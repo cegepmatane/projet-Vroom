@@ -47,12 +47,22 @@ public class Player : MonoBehaviour
         positionRespawn.SetPositionAndRotation(transform.position, rotation);
     }
 
-    public void setLastCheckPoint(Transform transform) {
-        positionRoadBlock.SetPositionAndRotation(transform.position, transform.rotation);
+    public void setLastCheckPoint(Transform a_transform) {
+        positionRoadBlock.SetPositionAndRotation(a_transform.position, a_transform.rotation);
 
-        int index = transform.parent.GetSiblingIndex() + 1;
-        if (roadManager.CheckpointList.childCount > index)
-            nextCheckpointDirection = roadManager.CheckpointList.GetChild(index).right;
+        int index = a_transform.parent.GetSiblingIndex();
+
+        if (index < roadManager.CheckpointList.childCount - 1)
+            index++;
+
+        Road currentRoad = currentMap.GetComponent<Road>();
+        Transform nextCheckpoint = roadManager.CheckpointList.GetChild(index);
+
+        if (nextCheckpoint.GetComponent<Checkpoint>().IsFinish && currentRoad.Isloop) {
+            nextCheckpoint = currentRoad.CheckpointList[0].transform;
+        }
+
+        nextCheckpointDirection = nextCheckpoint.right;
     }
 
     public void teleport(Transform a_spawnPoint, Transform a_blockPoint) {
@@ -73,9 +83,10 @@ public class Player : MonoBehaviour
 
     public void finish() {
         rewardAgent(3);
-        agent.EndEpisode();
-
+        
         if (!isLearning)
             gameObject.SetActive(false);
+
+        agent.EndEpisode();
     }
 }

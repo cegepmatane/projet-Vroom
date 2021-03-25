@@ -212,10 +212,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1634204513655463825, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8661687711961856176, guid: 541043cd6908b114bae4cc1b6a1f95b0, type: 3}
     - target: {fileID: 1939417632831460625, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 984d458679f32424d8e53d5d076f58d8, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: a02dee5d1ff264c4f94c277419140af8, type: 3}
     - target: {fileID: 1939417632831460625, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -238,11 +242,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
---- !u!4 &392229126 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1634204513655463824, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-  m_PrefabInstance: {fileID: 1973893114}
+--- !u!114 &302363576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+  m_PrefabInstance: {fileID: 302363575}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eb36f045592a584fa99983cbf6244bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5e234f2fcada7f4b905ab0cc64adb26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 392229126}
+  target: {fileID: 1973893116}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -372,8 +382,8 @@ MonoBehaviour:
   roadManager: {fileID: 2075630140}
   players:
   - {fileID: 1973893115}
-  - {fileID: 769434606}
-  - {fileID: 1320756499}
+  - {fileID: 302363576}
+  - {fileID: 1076996055}
 --- !u!4 &520490167
 Transform:
   m_ObjectHideFlags: 0
@@ -419,18 +429,7 @@ Transform:
   m_Father: {fileID: 2075630141}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &769434606 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-  m_PrefabInstance: {fileID: 302363575}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb36f045592a584fa99983cbf6244bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1320756498
+--- !u!1001 &1076996054
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -485,10 +484,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: playerBot (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1634204513547370007, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1634204513655463825, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -496,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 1939417632831460625, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 10ad687733e8f344f845fa5cbc833f95, type: 3}
+      objectReference: {fileID: 5022602860645237092, guid: a02dee5d1ff264c4f94c277419140af8, type: 3}
     - target: {fileID: 1939417632831460625, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: m_BehaviorType
       value: 2
@@ -506,23 +501,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-      propertyPath: isLearning
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: roadManager
       value: 
       objectReference: {fileID: 2075630140}
-    - target: {fileID: 5791393133862364100, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
---- !u!114 &1320756499 stripped
+--- !u!114 &1076996055 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
-  m_PrefabInstance: {fileID: 1320756498}
+  m_PrefabInstance: {fileID: 1076996054}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -655,6 +642,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+      propertyPath: isBot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049388450538402855, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
       propertyPath: isLearning
       value: 0
       objectReference: {fileID: 0}
@@ -679,6 +670,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb36f045592a584fa99983cbf6244bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1973893116 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1634204513655463824, guid: c18691bb10f11df4992381cdf76e8c08, type: 3}
+  m_PrefabInstance: {fileID: 1973893114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2075630139
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,7 +712,7 @@ MonoBehaviour:
   - {fileID: 5692609386494651240, guid: 6e1c67e15b3b8bd4bb7006fe3a1fcffa, type: 3}
   - {fileID: 3959267683637142526, guid: dad7e5647d22a9d4cbfc57f3afea0733, type: 3}
   - {fileID: 6360133667161545915, guid: 7ff8d653f5431a440af69e96953ec3ac, type: 3}
-  - {fileID: 923055048455715851, guid: ad94d45033a259245b96e77bec795d63, type: 3}
+  - {fileID: 1620844123407549852, guid: 94d4630c4472f0f4c83fb37a2100e68c, type: 3}
   roadPrefabsFullProc:
   - {fileID: 5237936313270572922, guid: 7aa3eb2a88626ca488dcc731d075890e, type: 3}
   - {fileID: 8934567721906138442, guid: d7fcf8c38492b4a47ba00eadf469a51d, type: 3}

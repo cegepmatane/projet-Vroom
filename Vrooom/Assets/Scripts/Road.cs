@@ -17,6 +17,8 @@ public class Road : MonoBehaviour
     Transform nextSpawnPoint;
 
     public Transform NextSpawnPoint{ get { return nextSpawnPoint; } }
+    public bool Isloop{ get { return isLoop; } }
+    public List<Checkpoint> CheckpointList { get { return checkpointList; } }
 
     Dictionary<int, int> tourDesJoueurs = new Dictionary<int, int>();
 

@@ -13,13 +13,24 @@ public class AgentVoiture : Agent
     [SerializeField]
     private Player player;
 
+    private float direction;
+    private float minSpeed = 1;
+
     public override void OnEpisodeBegin() {
+        SetReward(-2.5f);
         player.respawn();
         player.CurrentMap.GetComponent<Road>().resetPlayer(player.gameObject.GetInstanceID());
     }
 
+    private void Update() {
+        AddReward((direction - 1f) * 2 * Time.deltaTime);
+        if (carMovement.RbVelocity.magnitude < minSpeed)
+            AddReward(-1f * Time.deltaTime);
+    }
+
     public override void CollectObservations(VectorSensor sensor) {
-        float direction = Vector3.Dot(carMovement.transform.up, player.NextCheckpointDirection);
+        direction = Vector3.Dot(carMovement.transform.up, player.NextCheckpointDirection);
+        sensor.AddObservation(carMovement.RbVelocity.magnitude);
         sensor.AddObservation(direction);
     }
 

@@ -14,7 +14,7 @@ public class CarMovement : MonoBehaviour
 	float minStickyVelocity = 1.5f; //pas implementer, peut-^etre plus tard
 
 	private int crashInARow = 0;
-	private int crashInARowThreshold = 100;
+	private int crashInARowThreshold = 10;
 
 	private AgentVoiture agentVoiture;
 	//Variables de controle
@@ -23,6 +23,14 @@ public class CarMovement : MonoBehaviour
 
 	[SerializeField]
 	Player monPlayer;
+
+	public Vector2 RbVelocity { 
+		get { if (rb != null) 
+				return rb.velocity; 
+		else 
+				return Vector2.zero; 
+		} 
+	}
 
 	void Start()
     {
@@ -77,7 +85,7 @@ public class CarMovement : MonoBehaviour
 		if (collision.TryGetComponent<Checkpoint>(out checkpoint)) {
 			if (checkpoint.confirmPlayer(monPlayer)) {
 				//IA feedback
-				agentVoiture.AddReward(1f);
+				agentVoiture.AddReward(2.5f);
 				resetCrashInRow();
 			}
 		}
@@ -91,12 +99,12 @@ public class CarMovement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-		agentVoiture.AddReward(-4f);
-		crash(false);
+		//agentVoiture.AddReward(-4f);
+		crash(true);
 	}
 
     private void OnCollisionStay2D(Collision2D collision){
-		crash(false);
+		crash(true);
 	}
 
 	private void crash(bool a_forceRespawn) {
@@ -109,9 +117,9 @@ public class CarMovement : MonoBehaviour
 			
 
 		//IA feedback
-		agentVoiture.AddReward(-1f);
+		agentVoiture.AddReward(-10f);
 		if (!monPlayer.IsLearning || a_forceRespawn) {
-			if (a_forceRespawn) agentVoiture.SetReward(-1);
+			//if (a_forceRespawn) agentVoiture.SetReward(-1);
 			agentVoiture.EndEpisode();
 		}
 	}
